@@ -1,0 +1,63 @@
+
+
+public class Conta {
+	private double saldo;
+	private int agencia;
+	private int numero;
+	private Cliente titular;
+	
+	public void deposita(double valor) {
+		this.saldo += valor;
+	}
+	
+	public boolean saca(double valor) {
+		if(this.saldo >= valor) {
+			this.saldo -= valor;
+			return true;
+		} 
+		return false;
+	}
+	
+	public boolean transfere(double valor, Conta destino) {
+		if(this.saldo >= valor) {
+			this.saca(valor);
+			destino.deposita(valor);
+			return true;
+		} 
+		return false;
+	}
+	
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+	
+	public double getSaldo() {
+		return this.saldo;
+	}
+	
+	public int getNumero() {
+		return this.numero;
+	}
+	//get eu preciso retornar algo, é basicamente só pra isso que serve esse treco
+	
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+	//set eu preciso não preciso retornar algo, entao pode ser normal usar o void
+	
+	public int getAgencia() {
+		return this.agencia;
+	}
+	
+	public void setAgencia(int agencia) {
+		this.agencia = agencia;
+	}
+	
+	public void setTitular(Cliente titular) {
+		this.titular = titular;
+	}
+	public Cliente getTitular() {
+		return titular;
+	}
+	
+}
